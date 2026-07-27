@@ -193,13 +193,11 @@ nav.stuck{border-bottom-color:var(--line)}
 
 /* ---------- sobre ---------- */
 .sobre{background:var(--bg-alt)}
-.sobre-in{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(36px,5vw,80px)}
+.sobre-in{display:grid;grid-template-columns:.62fr 1.38fr;gap:clamp(36px,5vw,80px);align-items:start}
 @media(max-width:900px){.sobre-in{grid-template-columns:1fr}}
-.portrait{aspect-ratio:4/5;border-radius:3px;
-  background:repeating-linear-gradient(-45deg,#E4E1D8 0 12px,#DFDCD2 12px 24px);
-  display:flex;align-items:center;justify-content:center;text-align:center}
-.portrait span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#A5A093;
-  border:1px dashed #C3BEB0;border-radius:99px;padding:9px 17px;background:rgba(237,235,228,.7)}
+.portrait{aspect-ratio:4/5;border-radius:3px;overflow:hidden;background:#E4E1D8;max-width:360px}
+@media(max-width:900px){.portrait{max-width:300px}}
+.portrait img{width:100%;height:100%;object-fit:cover}
 .pull{font-weight:400;font-size:clamp(23px,3vw,35px);line-height:1.3;letter-spacing:-.03em;color:var(--ink);
   margin:34px 0;padding-left:26px;border-left:2px solid var(--clay);max-width:20ch}
 .sobre p+p{margin-top:18px}
@@ -471,7 +469,8 @@ html.js .rv.in{opacity:1;transform:none}
 <!-- ===================== SOBRE ===================== -->
 <section class="sobre" id="sobre"><div class="wrap sobre-in">
   <div>
-    <div class="portrait rv"><span>Retrato a incluir</span></div>
+    <figure class="portrait rv"><img src="assets/retrato.jpg"
+      alt="Rodrigo Victor Scherer em frente a uma loja Lilica &amp; Tigor"></figure>
   </div>
   <div>
     <div class="eyebrow rv">Sobre</div>
