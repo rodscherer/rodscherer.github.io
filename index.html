@@ -101,10 +101,11 @@ nav.stuck{border-bottom-color:var(--line)}
 .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;
   margin-bottom:clamp(40px,5vw,66px);flex-wrap:wrap}
 
-.feature{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,64px);align-items:center;
+.feature{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,64px);align-items:stretch;
   background:var(--bg-alt);border-radius:4px;overflow:hidden}
 @media(max-width:900px){.feature{grid-template-columns:1fr}}
-.feature-img{position:relative;aspect-ratio:4/5;background:#E4E1D8}
+.feature-img{position:relative;min-height:340px;background:#E4E1D8}
+@media(max-width:900px){.feature-img{min-height:0;aspect-ratio:3/2}}
 .feature-img img{width:100%;height:100%;object-fit:cover}
 .feature-body{padding:clamp(28px,3.6vw,58px) clamp(28px,3.6vw,58px) clamp(28px,3.6vw,58px) 0}
 @media(max-width:900px){.feature-body{padding:0 26px 40px}}
@@ -141,7 +142,7 @@ nav.stuck{border-bottom-color:var(--line)}
 .case-top{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center;
   margin-bottom:clamp(40px,5vw,70px)}
 @media(max-width:900px){.case-top{grid-template-columns:1fr}}
-.case-logo{width:56px;margin-bottom:28px}
+.case-logo{width:120px;margin-bottom:28px}
 .case .btn-solid{background:#F5F4F0;color:var(--ink);border-color:#F5F4F0}
 .case .btn-solid:hover{background:var(--verde);border-color:var(--verde);color:#fff}
 .gal{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(10px,1.3vw,18px)}
@@ -150,18 +151,51 @@ nav.stuck{border-bottom-color:var(--line)}
 .gal figure:hover img{transform:scale(1.035)}
 .gal figcaption{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8B877C;
   padding:12px 2px 0}
-/* proporções escolhidas perto das nativas de cada foto, para cortar o mínimo */
+.gal-head{grid-column:1/-1;margin-top:clamp(30px,3.6vw,56px)}
+.gal-head:first-child{margin-top:0}
+.gal-head h3{font-size:clamp(20px,2.2vw,26px);color:#F5F4F0;margin-bottom:8px}
+.gal-head p{font-size:14.5px;line-height:1.65;max-width:64ch}
+.gal figure{display:flex;flex-direction:column}
+.gal .shot{flex:none}
+.stack{display:flex;flex-direction:column;justify-content:space-between;gap:clamp(10px,1.3vw,18px)}
+.stack figure{margin:0}
+.gal .fill .shot{flex:1;position:relative}
+.gal .fill .shot img{position:absolute;inset:0}
+.look-note{display:flex;flex-direction:column;justify-content:center;padding-right:clamp(0px,2vw,28px)}
+.look-note h3{font-size:clamp(24px,2.8vw,34px);color:#F5F4F0;margin-bottom:14px}
+.look-note small{display:block;margin-top:18px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8B877C}
+/* proporções escolhidas perto das nativas de cada imagem, para cortar o mínimo */
 .g-third{grid-column:span 4} .g-third .shot{aspect-ratio:5/9}
 .g-half{grid-column:span 6}  .g-half  .shot{aspect-ratio:2/1}
 .g-tall{grid-column:span 4}  .g-tall  .shot{aspect-ratio:3/4}
+.g-5{grid-column:span 5} .g-7{grid-column:span 7} .g-8{grid-column:span 8} .g-4{grid-column:span 4}
+.g-third.sk .shot{aspect-ratio:10/7}
+.gal .tall .shot{aspect-ratio:5/9}
+.a-hero .shot{aspect-ratio:1208/821}
+.a-wide .shot{aspect-ratio:12/5}
+.a-est .shot{aspect-ratio:1391/977}
+.a-small .shot{aspect-ratio:9/4}
+.a-id .shot{aspect-ratio:1297/933}
 /* fotos muito verticais: mostra inteiras em vez de cortar */
 .fit img{object-fit:contain;padding:10px}
 @media(max-width:720px){
-  .g-half{grid-column:span 12}
+  .g-half,.g-5,.g-7,.g-8,.g-4{grid-column:span 12}
   .g-third,.g-tall{grid-column:span 6}
+  .g-third.sk{grid-column:span 12}
+  .look-note{grid-column:span 12}
+  .g-4.tall{grid-column:span 6}
+  .gal .fill .shot{aspect-ratio:4/5;flex:none}
   .g-third .shot{aspect-ratio:5/9}
   .g-tall .shot{aspect-ratio:3/4}
 }
+.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,48px);
+  margin:0 0 clamp(40px,5vw,70px);padding:0;list-style:none}
+@media(max-width:720px){.principles{grid-template-columns:1fr}}
+.principles li{border-top:1px solid rgba(237,235,228,.16);padding-top:22px}
+.principles i{display:block;font-style:normal;font-size:12px;letter-spacing:.16em;color:#8FA36B;margin-bottom:10px}
+.principles b{display:block;font-weight:500;font-size:19px;letter-spacing:-.02em;color:#EDEBE4;margin-bottom:8px}
+.principles span{font-size:14.5px;line-height:1.6;color:#B9B5AA}
+.case-note{margin-top:22px;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#8B877C;line-height:1.7}
 .case-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:clamp(38px,4.5vw,58px);
   padding-top:34px;border-top:1px solid rgba(237,235,228,.16)}
 @media(max-width:820px){.case-facts{grid-template-columns:1fr 1fr;gap:24px}}
@@ -250,7 +284,7 @@ html.js .rv.in{opacity:1;transform:none}
     <div>
       <h1 class="rv">Rodrigo<span class="l2">Scherer</span></h1>
       <div class="hero-meta rv">
-        <span>Jaraguá do Sul · SC</span>
+        <span>Farroupilha · RS</span>
         <span>20 anos de indústria</span>
         <span>Infantil · Casual · Esportivo</span>
       </div>
@@ -269,7 +303,7 @@ html.js .rv.in{opacity:1;transform:none}
 <div class="stats"><div class="wrap stats-in">
   <div class="stat rv"><b>20</b><span>Anos no<br>desenvolvimento de calçados</span></div>
   <div class="stat rv"><b>12</b><span>Anos como estilista<br>na Marisol</span></div>
-  <div class="stat rv"><b>4</b><span>Indústrias<br>calçadistas</span></div>
+  <div class="stat rv"><b>5</b><span>Empresas do<br>setor calçadista</span></div>
   <div class="stat rv"><b>360º</b><span>Da modelagem ao<br>conceito de marca</span></div>
 </div></div>
 
@@ -285,21 +319,21 @@ html.js .rv.in{opacity:1;transform:none}
   <!-- destaque -->
   <article class="feature rv">
     <div class="feature-img">
-      <img src="assets/vd-produto-embalagem.jpg" alt="Embalagem em papel kraft com formato de folha ao lado do chinelo Verdeá, com sementes">
+      <img src="assets/live-hero.jpg" alt="Sneaker rosé com a logomarca LIVE! em relevo formando a estrutura lateral, visto de lado e de cima">
     </div>
     <div class="feature-body">
-      <div class="meta">Conceito de marca · 2026</div>
-      <h3 style="font-size:clamp(28px,3.4vw,42px)">Verdeá</h3>
-      <p style="margin-top:14px">Marca de chinelos com tingimento natural, construída a partir da
-        biomimética. Sola e tira desenham a nervura de uma folha real; a embalagem em papel kraft
-        repete a mesma forma e carrega uma semente — o produto termina plantado, não descartado.</p>
+      <div class="meta">Estudo conceitual · Sneakers 2027</div>
+      <h3 style="font-size:clamp(28px,3.4vw,42px)">LIVE! Footwear</h3>
+      <p style="margin-top:14px">Proposta autoral de sneakers para a LIVE!, que conecta prática
+        esportiva, bem-estar e vestuário. A logomarca em relevo forma a própria estrutura lateral do
+        tênis, e a cartela monocromática aproxima o calçado do look completo.</p>
       <div class="tagrow">
-        <span class="tag">Biomimética</span>
-        <span class="tag">Tingimento natural</span>
-        <span class="tag">Embalagem</span>
-        <span class="tag">Identidade</span>
+        <span class="tag">Sneakers</span>
+        <span class="tag">Identidade de marca</span>
+        <span class="tag">Logomarca em relevo</span>
+        <span class="tag">Vestuário</span>
       </div>
-      <a class="btn btn-ghost" href="#verdea">Ver o projeto →</a>
+      <a class="btn btn-ghost" href="#live">Ver o projeto →</a>
     </div>
   </article>
 
@@ -335,70 +369,152 @@ html.js .rv.in{opacity:1;transform:none}
   </div>
 </div></section>
 
-<!-- ===================== CASE VERDEÁ ===================== -->
-<section class="case" id="verdea"><div class="wrap">
+<!-- ===================== CASE LIVE! ===================== -->
+<section class="case" id="live"><div class="wrap">
   <div class="case-top">
     <div>
-      <img class="case-logo rv" src="assets/verdea-logo.png" alt="Símbolo Verdeá — folha em traço contínuo">
+      <img class="case-logo rv" src="assets/live-logo.png" alt="LIVE!">
       <div class="eyebrow rv">Estudo de caso</div>
-      <h2 class="rv">Caminhar com a<br><em>essência da natureza</em></h2>
+      <h2 class="rv">Esportivo na origem.<br><em>Versátil no uso.</em></h2>
     </div>
     <div>
-      <p class="rv">O universo escolhido foi o da natureza e da biomimética — formas naturais tomadas
-        como princípio de projeto, não como ornamento. A cor nasce de três plantas tintórias:
-        erva-mate, eucalipto e urucum, que trazem junto propriedades antibacterianas, antioxidantes
-        e cicatrizantes para a pele dos pés.</p>
-      <p class="rv" style="margin-top:16px">A embalagem foi desenhada como uma folha em papel kraft,
-        sem tintas excessivas e sem plástico, valorizando a textura crua do material.</p>
+      <p class="rv">Uma leitura de marca que conecta prática esportiva, bem-estar e vestuário para
+        diferentes momentos do dia. O papel do calçado é completar o look e traduzir a identidade
+        da LIVE! em forma, materiais e experiência de uso.</p>
+      <p class="rv" style="margin-top:16px">A proposta acompanha quem combina movimento e
+        compromissos cotidianos: um lifestyle esportivo com assinatura LIVE!, que complementa os
+        modelos atuais e aproxima calçado e vestuário.</p>
       <div class="hero-cta rv">
-        <a class="btn btn-solid" href="assets/verdea-apresentacao.pdf" target="_blank" rel="noopener">
-          Apresentação completa (PDF)</a>
+        <a class="btn btn-solid" href="assets/live-proposta.pdf" target="_blank" rel="noopener">
+          Proposta completa (PDF)</a>
       </div>
+      <p class="case-note rv">Estudo conceitual autoral, sem vínculo oficial com a LIVE!<br>
+        Imagens ilustrativas dos conceitos.</p>
     </div>
   </div>
 
+  <ul class="principles">
+    <li class="rv"><i>01</i><b>Identidade visível</b><span>Logomarca e símbolo como elementos de construção do produto.</span></li>
+    <li class="rv"><i>02</i><b>Combinação com o vestuário</b><span>Cores e acabamentos pensados para coordenar o look completo.</span></li>
+    <li class="rv"><i>03</i><b>Conforto como premissa</b><span>Ajuste, estabilidade e materiais a validar na etapa de prototipagem.</span></li>
+  </ul>
+
   <div class="gal">
-    <figure class="g-third rv">
-      <span class="shot"><img src="assets/vd-cor-ervamate.jpg" alt="Par de chinelos Verdeá tingidos com erva-mate, em verde-musgo"></span>
-      <figcaption>Erva-mate · Verde-musgo</figcaption>
+    <div class="gal-head rv">
+      <h3>Estudos em sketch</h3>
+      <p>A busca por um sneaker icônico: linhas direcionais e aberturas de amortecimento no solado,
+        letras em relevo e volumes contínuos, com uma assinatura visual entre cabedal e base.</p>
+    </div>
+    <figure class="g-third sk rv">
+      <span class="shot"><img src="assets/live-sketch-1.jpg" alt="Sketch de sneaker visto de lado e de cima, com linhas direcionais e aberturas de amortecimento no solado"></span>
+      <figcaption>Estrutura em movimento</figcaption>
     </figure>
-    <figure class="g-third rv">
-      <span class="shot"><img src="assets/vd-cor-eucalipto.jpg" alt="Par de chinelos Verdeá tingidos com eucalipto, em bege natural"></span>
-      <figcaption>Eucalipto · Bege natural</figcaption>
+    <figure class="g-third sk rv">
+      <span class="shot"><img src="assets/live-sketch-2.jpg" alt="Sketch de sneaker com as letras LIVE! em relevo formando a estrutura lateral"></span>
+      <figcaption>Logomarca como estrutura</figcaption>
     </figure>
-    <figure class="g-third rv">
-      <span class="shot"><img src="assets/vd-cor-urucum.jpg" alt="Par de chinelos Verdeá tingidos com urucum, em terracota"></span>
-      <figcaption>Urucum · Terracota</figcaption>
-    </figure>
-
-    <figure class="g-half rv">
-      <span class="shot"><img src="assets/vd-biomimetica.jpg" alt="Borboleta de asas transparentes pousada sobre uma folha verde"></span>
-      <figcaption>A referência — biomimética</figcaption>
-    </figure>
-    <figure class="g-half rv">
-      <span class="shot"><img src="assets/vd-tingimento.jpg" alt="Mãos manipulando pigmentos e materiais de tingimento natural sobre madeira"></span>
-      <figcaption>O tingimento vegetal</figcaption>
+    <figure class="g-third sk rv">
+      <span class="shot"><img src="assets/live-sketch-3.jpg" alt="Sketch de sneaker com a assinatura LIVE! integrando cabedal e solado"></span>
+      <figcaption>Integração lateral</figcaption>
     </figure>
 
-    <figure class="g-tall fit rv">
-      <span class="shot"><img src="assets/vd-embalagem.jpg" alt="Embalagem em papel kraft com formato de folha, com sementes ao lado"></span>
-      <figcaption>Embalagem-semente</figcaption>
+    <div class="gal-head rv">
+      <h3>Logomarca em relevo</h3>
+      <p>A logomarca em relevo da LIVE! forma a própria estrutura lateral do sneaker. Tons
+        monocromáticos aproximam o tênis da cartela do vestuário.</p>
+    </div>
+    <figure class="g-7 a-hero rv">
+      <span class="shot"><img src="assets/live-hero.jpg" alt="Sneaker rosé com a logomarca LIVE! em relevo na lateral, visto de lado e de cima"></span>
+      <figcaption>Rosé</figcaption>
     </figure>
-    <figure class="g-tall fit rv">
-      <span class="shot"><img src="assets/vd-nervura.jpg" alt="Macro de uma folha mostrando a estrutura de nervuras contra a luz"></span>
-      <figcaption>A nervura como princípio</figcaption>
+    <div class="g-5 stack">
+      <figure class="a-wide rv">
+        <span class="shot"><img src="assets/live-relevo-preto.jpg" alt="Sneaker preto monocromático com a logomarca LIVE! em relevo"></span>
+        <figcaption>Preto</figcaption>
+      </figure>
+      <figure class="a-wide rv">
+        <span class="shot"><img src="assets/live-relevo-branco.jpg" alt="Sneaker branco monocromático com a logomarca LIVE! em relevo"></span>
+        <figcaption>Branco</figcaption>
+      </figure>
+    </div>
+
+    <div class="gal-head rv">
+      <h3>Estrutura e movimento</h3>
+      <p>Uma direção para o público masculino, com volumes arquitetônicos e contraste entre
+        cabedal, suporte e solado. A sola valoriza o amortecimento e o elemento da marca conectado
+        ao visual.</p>
+    </div>
+    <figure class="g-8 a-est rv">
+      <span class="shot"><img src="assets/live-estrutura.jpg" alt="Sneaker cinza com suporte lateral branco e solado com aberturas de amortecimento, visto de lado e de cima"></span>
+      <figcaption>Cinza</figcaption>
     </figure>
-    <figure class="g-tall fit rv">
-      <span class="shot"><img src="assets/vd-chinelo.jpg" alt="Chinelo Verdeá visto de cima, com a nervura em relevo no solado"></span>
-      <figcaption>O solado</figcaption>
+    <div class="g-4 stack">
+      <figure class="a-small rv">
+        <span class="shot"><img src="assets/live-estrutura-preto.jpg" alt="Sneaker preto com detalhes em cobre e aberturas de amortecimento"></span>
+      </figure>
+      <figure class="a-small rv">
+        <span class="shot"><img src="assets/live-estrutura-bronze.jpg" alt="Sneaker marrom com detalhes em bronze e suporte branco"></span>
+      </figure>
+      <figure class="a-small rv">
+        <span class="shot"><img src="assets/live-estrutura-azul.jpg" alt="Sneaker cinza com detalhes em azul e suporte branco"></span>
+      </figure>
+    </div>
+
+    <div class="gal-head rv">
+      <h3>Identidade integrada</h3>
+      <p>A assinatura lateral conecta cabedal e solado. Verde profundo, base clara e um detalhe
+        vermelho reforçam a composição premium.</p>
+    </div>
+    <figure class="g-8 a-id rv">
+      <span class="shot"><img src="assets/live-identidade.jpg" alt="Sneaker claro com a assinatura LIVE! em verde profundo e detalhe vermelho no calcanhar, visto de lado e de cima"></span>
+      <figcaption>Verde profundo e vermelho</figcaption>
+    </figure>
+    <figure class="g-4 fill rv">
+      <span class="shot"><img src="assets/live-identidade-look.jpg" alt="Pessoa caminhando de legging escura com o sneaker de assinatura verde e vermelha"></span>
+      <figcaption>Aplicação ilustrativa</figcaption>
+    </figure>
+
+    <div class="gal-head rv">
+      <h3>Caminhos visuais complementares</h3>
+      <p>Variações que exploram monocromia, transparência, trama knit e aberturas de amortecimento.</p>
+    </div>
+    <figure class="g-half rv">
+      <span class="shot"><img src="assets/live-var-monocromia.jpg" alt="Sneaker bege monocromático com a assinatura LIVE! ampliada"></span>
+      <figcaption>Monocromia e assinatura ampliada</figcaption>
+    </figure>
+    <figure class="g-half rv">
+      <span class="shot"><img src="assets/live-var-transparencia.jpg" alt="Sneaker em tons de verde translúcido com acento de cor"></span>
+      <figcaption>Transparência e acento de cor</figcaption>
+    </figure>
+    <figure class="g-half rv">
+      <span class="shot"><img src="assets/live-var-knit.jpg" alt="Sneaker bege com trama knit amarela e base escultural"></span>
+      <figcaption>Trama knit e base escultural</figcaption>
+    </figure>
+    <figure class="g-half rv">
+      <span class="shot"><img src="assets/live-var-amortecimento.jpg" alt="Sneaker claro com aberturas de amortecimento em roxo na sola"></span>
+      <figcaption>Aberturas de amortecimento e pontos de luz</figcaption>
+    </figure>
+
+    <div class="look-note g-4 rv">
+      <h3>O look completo</h3>
+      <p>O calçado dá continuidade à linguagem do vestuário e acompanha diferentes momentos da
+        rotina.</p>
+      <small>Aplicações ilustrativas dos conceitos</small>
+    </div>
+    <figure class="g-4 tall rv">
+      <span class="shot"><img src="assets/live-look-cinza.jpg" alt="Pernas de uma pessoa de calça escura usando o sneaker cinza com suporte branco"></span>
+    </figure>
+    <figure class="g-4 tall rv">
+      <span class="shot"><img src="assets/live-look-branco.jpg" alt="Pernas de uma pessoa de legging preta usando o sneaker branco com logomarca em relevo"></span>
     </figure>
   </div>
 
-  <dl class="case-facts rv">
-    <div><dt>Universo</dt><dd>Biomimética</dd></div>
-    <div><dt>Cor</dt><dd>Tingimento vegetal</dd></div>
-    <div><dt>Material</dt><dd>Papel kraft</dd></div>
-    <div><dt>Ciclo</dt><dd>Embalagem-semente</dd></div>
+  <div class="gal-head rv" style="margin-top:clamp(38px,4.5vw,58px)"><h3>Próximos passos</h3></div>
+  <dl class="case-facts rv" style="margin-top:18px">
+    <div><dt>01</dt><dd>Curadoria</dd></div>
+    <div><dt>02</dt><dd>Construção</dd></div>
+    <div><dt>03</dt><dd>Validação</dd></div>
+    <div><dt>04</dt><dd>Coleção</dd></div>
   </dl>
 </div></section>
 
@@ -408,10 +524,21 @@ html.js .rv.in{opacity:1;transform:none}
   <h2 class="rv" style="margin-bottom:clamp(36px,4.5vw,60px)">Vinte anos <em>de indústria</em></h2>
   <div class="tl">
     <div class="tl-item rv">
+      <div class="tl-when">10 Ago 2026 — atual</div>
+      <div class="tl-what"><h3>Designer de calçados</h3><div class="co">Grendene · Farroupilha, RS</div></div>
+      <div class="tl-note">Atuação como designer de calçados.</div>
+    </div>
+    <div class="tl-item rv">
+      <div class="tl-when">2025 — 2026</div>
+      <div class="tl-what"><h3>Design de calçados</h3><div class="co">Projetos</div></div>
+      <div class="tl-note">Desenvolvimento de projetos de calçados infantis e adulto masculino para
+        marcas e fabricantes do setor calçadista.</div>
+    </div>
+    <div class="tl-item rv">
       <div class="tl-when">Ago 2013 — Ago 2025</div>
-      <div class="tl-what"><h3>Estilista de calçados</h3><div class="co">Marisol · Jaraguá do Sul, SC</div></div>
-      <div class="tl-note">Design de conceito criativo. Doze anos à frente da criação de calçados
-        infantis casuais e esportivos.</div>
+      <div class="tl-what"><h3>Estilista de calçados</h3><div class="co">Marisol SA · Jaraguá do Sul, SC</div></div>
+      <div class="tl-note">Criação de coleções para Lilica Ripilica, Tigor T. Tigre e Marisol: pesquisa
+        de tendências, definição de mix e acompanhamento do protótipo à escala produtiva.</div>
     </div>
     <div class="tl-item rv">
       <div class="tl-when">Abr 2012 — Mai 2013</div>
@@ -420,13 +547,14 @@ html.js .rv.in{opacity:1;transform:none}
     </div>
     <div class="tl-item rv">
       <div class="tl-when">Fev 2010 — Abr 2011</div>
-      <div class="tl-what"><h3>Designer de calçados</h3><div class="co">Four Kirst · Novo Hamburgo, RS</div></div>
+      <div class="tl-what"><h3>Designer de calçados</h3><div class="co">Four Kirst Studio · Novo Hamburgo, RS</div></div>
       <div class="tl-note">Criação e desenvolvimento de linhas.</div>
     </div>
     <div class="tl-item rv">
       <div class="tl-when">Jul 2006 — Set 2009</div>
-      <div class="tl-what"><h3>Modelista de calçados</h3><div class="co">Carrano · Novo Hamburgo, RS</div></div>
-      <div class="tl-note">Modelagem, formas e construção — a base técnica de toda a carreira.</div>
+      <div class="tl-what"><h3>Modelista de calçados</h3><div class="co">Henrich</div></div>
+      <div class="tl-note">Base técnica da carreira, com atuação para Carrano e para o mercado de
+        exportação: Clarks, Unisa e Timeless.</div>
     </div>
   </div>
 </div></section>
@@ -440,23 +568,22 @@ html.js .rv.in{opacity:1;transform:none}
       pela escolha de materiais, cartela de cores e pela comunicação do produto ao lojista e ao
       consumidor final.</p>
     <div class="pill-wrap rv">
-      <span class="pill">Design de calçados</span>
-      <span class="pill">Desenvolvimento de produto</span>
-      <span class="pill">Design de conceito criativo</span>
-      <span class="pill">Modelagem</span>
-      <span class="pill">Design de produto</span>
-      <span class="pill">Pesquisa de materiais</span>
-      <span class="pill">Graphic Design</span>
-      <span class="pill">Photoshop</span>
-      <span class="pill">Inglês fluente</span>
-      <span class="pill">Disponível para viagens</span>
+      <span class="pill">Criação e planejamento de coleções</span>
+      <span class="pill">Pesquisa de tendências e mercado</span>
+      <span class="pill">Mix e pirâmide de produto</span>
+      <span class="pill">Identidade e linguagem de marca</span>
+      <span class="pill">Cores, materiais e acabamentos</span>
+      <span class="pill">Modelagem e prototipagem</span>
+      <span class="pill">Conforto e viabilidade produtiva</span>
+      <span class="pill">Adobe Photoshop</span>
+      <span class="pill">Inglês intermediário</span>
     </div>
   </div>
   <div>
     <div class="eyebrow rv">Formação</div>
     <h2 class="rv">Base <em>técnica</em></h2>
     <ul class="edu" style="margin-top:26px">
-      <li class="rv"><i>2007—2013</i><b>Design de Produto</b><span>Universidade Feevale · Bacharelado (incompleto)</span></li>
+      <li class="rv"><i>em conclusão</i><b>Design de Produto</b><span>Universidade Feevale · em fase de conclusão</span></li>
       <li class="rv"><i>2014—2018</i><b>Processos Gerenciais</b><span>UNINTER Centro Universitário Internacional</span></li>
       <li class="rv"><i>2011</i><b>ESL Advanced</b><span>Western Town College, Canadá · intercâmbio de 6 meses</span></li>
       <li class="rv"><i>2008—2010</i><b>Design de Calçados</b><span>Escola Técnica SENAI · Novo Hamburgo</span></li>
@@ -476,8 +603,8 @@ html.js .rv.in{opacity:1;transform:none}
     <div class="eyebrow rv">Sobre</div>
     <h2 class="rv">Olhar <em>360º</em></h2>
     <p class="rv" style="margin-top:24px">Atuo no desenvolvimento de calçados há cerca de 20 anos,
-      hoje focado em design e desenvolvimento de produto. Minha trajetória tem maior participação na
-      criação de calçados infantis casuais e esportivos, ao longo de doze anos.</p>
+      hoje como designer de calçados na Grendene. Minha trajetória tem maior participação na
+      criação de calçados infantis casuais e esportivos, ao longo de doze anos na Marisol.</p>
     <p class="rv">O foco está na estética, no conforto e na escolha de materiais que elevam a
       experiência do cliente final. Como todo bom projeto exige uma boa comunicação aos lojistas e
       consumidores, atuo junto às áreas de divulgação para manter conhecimento contínuo.</p>
@@ -492,12 +619,13 @@ html.js .rv.in{opacity:1;transform:none}
 <section class="contato" id="contato"><div class="wrap">
   <div class="eyebrow rv">Contato</div>
   <h2 class="rv">Vamos desenhar o <em>próximo passo</em></h2>
-  <p class="rv">Aberto a projetos de design e desenvolvimento de calçados, consultoria de produto
-    e parcerias com marcas.</p>
+  <p class="rv">Aberto a conversar sobre design e desenvolvimento de calçados, em especial a criação
+    e a evolução de sneakers.</p>
   <div class="links rv">
     <a class="btn btn-solid" href="https://wa.me/5547991443337" target="_blank" rel="noopener">
       <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.53.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.06s.89 2.39 1.01 2.56c.12.16 1.74 2.66 4.22 3.73.59.25 1.05.4 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
       WhatsApp</a>
+    <a class="btn btn-ghost" href="assets/curriculo-rodrigo-scherer.pdf" target="_blank" rel="noopener">Currículo (PDF)</a>
     <a class="btn btn-ghost" href="https://www.linkedin.com/in/rodrigo-victor-scherer-30a5b645/" target="_blank" rel="noopener">LinkedIn</a>
     <a class="btn btn-ghost" href="https://www.coroflot.com/scherer" target="_blank" rel="noopener">Coroflot</a>
     <a class="btn btn-ghost" href="mailto:rodscherer3@gmail.com">E-mail</a>
@@ -506,7 +634,7 @@ html.js .rv.in{opacity:1;transform:none}
     <span>Rodrigo Victor Scherer</span>
     <span><a class="fone" href="https://wa.me/5547991443337" target="_blank" rel="noopener">(47) 99144-3337</a>
       &nbsp;·&nbsp; <a class="fone" href="mailto:rodscherer3@gmail.com">rodscherer3@gmail.com</a></span>
-    <span>Jaraguá do Sul · Santa Catarina · Brasil</span>
+    <span>Farroupilha · Rio Grande do Sul · Brasil</span>
   </footer>
 </div></section>
 
